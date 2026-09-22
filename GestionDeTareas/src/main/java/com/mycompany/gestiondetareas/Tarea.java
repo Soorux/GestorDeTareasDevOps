@@ -31,7 +31,7 @@ public class Tarea {
         return descripcion;
     }
 
-    public boolean isCompletada() {
+    public boolean getCompletada() {
         return completada;
     }
 

@@ -27,6 +27,8 @@ public class Main {
                case 1 ->
                    GestorTareas.aniadirTarea(g1);
                
+               case 2 ->
+                   GestorTareas.marcarCompletada(g1);
                case 3 ->
                    GestorTareas.listarTareas(g1);
                    
