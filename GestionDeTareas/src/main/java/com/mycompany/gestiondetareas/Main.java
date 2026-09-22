@@ -35,7 +35,8 @@ public class Main {
                case 4 ->
                    GestorTareas.comprobarEstadoTarea(g1);
                
-               
+               case 5 ->
+                   GestorTareas.borrarTarea(g1);
                case 0 ->
                    salir = true;
            

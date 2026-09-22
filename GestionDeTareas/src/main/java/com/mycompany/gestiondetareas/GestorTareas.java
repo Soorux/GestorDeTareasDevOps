@@ -14,22 +14,22 @@ import java.util.Scanner;
  * @author daw2
  */
 public class GestorTareas {
-    
+
     private static Scanner teclado = new Scanner(System.in);
     private List<Tarea> listaTareas;
-    
+
     public GestorTareas() {
         listaTareas = new ArrayList<Tarea>();
     }
-    
+
     public static void aniadirTarea(GestorTareas g) {
-        
+
         System.out.println("Introduce de que se trata la tarea: ");
         String descripcion = teclado.nextLine();
         System.out.println("Introduce como quieres llamar a la tarea: ");
         String nombre = teclado.nextLine();
         try {
-            
+
             if (g.listaTareas.add(new Tarea(descripcion, nombre))) {
                 System.out.println("Tarea creada correctamente");
             } else {
@@ -38,23 +38,23 @@ public class GestorTareas {
         } catch (Exception e) {
             System.out.println("No se ha podido crear la tarea");
         }
-        
+
     }
-    
+
     public static void listarTareas(GestorTareas g) {
-        
+
         for (Tarea t : g.listaTareas) {
             System.out.println(t.getNombre());
-            
+
             System.out.println(t.getCompletada());
         }
-        
+
     }
-    
+
     public static void marcarCompletada(GestorTareas g) {
         System.out.println("Introduce la tarea que quieres marcar como completada, tienes que poner el nombre de la tarea");
         String nombreTarea = teclado.nextLine();
-        
+
         for (Tarea t1 : g.listaTareas) {
             if (t1.getNombre().equals(nombreTarea)) {
                 t1.setCompletada(true);
@@ -62,24 +62,30 @@ public class GestorTareas {
             }
         }
     }
-    
-    public static void comprobarEstadoTarea(GestorTareas g){
-     System.out.println("Introduce la tarea que comprobar, tienes que poner el nombre de la tarea");
+
+    public static void comprobarEstadoTarea(GestorTareas g) {
+        System.out.println("Introduce la tarea que comprobar, tienes que poner el nombre de la tarea");
         String nombreTarea = teclado.nextLine();
-        
+
         for (Tarea t1 : g.listaTareas) {
             if (t1.getNombre().equals(nombreTarea)) {
-                if(t1.getCompletada()){
+                if (t1.getCompletada()) {
                     System.out.println("Esta completada la tarea " + t1.getNombre());
-                }
-                else if (!t1.getCompletada()){
+                } else if (!t1.getCompletada()) {
                     System.out.println("No esta completada la tarea " + t1.getNombre());
-                }
-                else{
+                } else {
                     System.out.println("No se ha encontrado la tarea mencionada" + nombreTarea);
                 }
             }
         }
     }
-    
+
+    public static void borrarTarea(GestorTareas g) {
+        System.out.println("Introduce la tarea que quieres borrar, tienes que poner el nombre de la tarea");
+        String nombreTarea = teclado.nextLine();
+
+        if (g.listaTareas.removeIf(t -> nombreTarea.equalsIgnoreCase(t.getNombre()))) {
+            System.out.println("Se ha borrado correctamente la tarea " + nombreTarea);
+        }
+    }
 }
