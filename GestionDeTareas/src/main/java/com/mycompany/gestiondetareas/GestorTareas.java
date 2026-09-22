@@ -63,4 +63,23 @@ public class GestorTareas {
         }
     }
     
+    public static void comprobarEstadoTarea(GestorTareas g){
+     System.out.println("Introduce la tarea que comprobar, tienes que poner el nombre de la tarea");
+        String nombreTarea = teclado.nextLine();
+        
+        for (Tarea t1 : g.listaTareas) {
+            if (t1.getNombre().equals(nombreTarea)) {
+                if(t1.getCompletada()){
+                    System.out.println("Esta completada la tarea " + t1.getNombre());
+                }
+                else if (!t1.getCompletada()){
+                    System.out.println("No esta completada la tarea " + t1.getNombre());
+                }
+                else{
+                    System.out.println("No se ha encontrado la tarea mencionada" + nombreTarea);
+                }
+            }
+        }
+    }
+    
 }

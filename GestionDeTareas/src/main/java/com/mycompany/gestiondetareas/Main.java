@@ -32,7 +32,11 @@ public class Main {
                case 3 ->
                    GestorTareas.listarTareas(g1);
                    
-               case 5 ->
+               case 4 ->
+                   GestorTareas.comprobarEstadoTarea(g1);
+               
+               
+               case 0 ->
                    salir = true;
            
            
