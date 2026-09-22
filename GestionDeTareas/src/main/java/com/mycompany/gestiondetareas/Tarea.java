@@ -4,6 +4,9 @@
  */
 package com.mycompany.gestiondetareas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author daw2
@@ -12,12 +15,14 @@ public class Tarea {
     
     private String descripcion;
     private boolean completada;
-
+    private String nombre;
     
     //Constructor
-    public Tarea(String descripcion, boolean completada) {
+    public Tarea(String descripcion, String nombre) {
+        this.nombre = nombre;
         this.descripcion = descripcion;
-        this.completada = completada;
+        this.completada = false;
+        
     }
     
     
@@ -28,6 +33,14 @@ public class Tarea {
 
     public boolean isCompletada() {
         return completada;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
 

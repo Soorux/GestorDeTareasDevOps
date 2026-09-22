@@ -5,6 +5,7 @@ package com.mycompany.gestiondetareas;
 
 import java.util.Scanner;
 
+
 /**
  *
  * @author daw2
@@ -15,7 +16,7 @@ public class Main {
 
         Scanner teclado = new Scanner(System.in);
         boolean salir = false;
-
+        GestorTareas g1 = new GestorTareas();
         while (salir != true) {
 
             mostrarMenu();
@@ -24,9 +25,10 @@ public class Main {
            switch(opcion){
            
                case 1 ->
-                   GestorTareas.aniadirTarea();
+                   GestorTareas.aniadirTarea(g1);
                
-                   
+               case 3 ->
+                   GestorTareas.listarTareas(g1);
                    
                case 5 ->
                    salir = true;
